@@ -8,16 +8,15 @@ const loadPhone = async (searchText) => {
 
 const displayPhone = (phones) => {
   const cardContainer = document.getElementById("card-container");
-  cardContainer.innerText = '';
+  cardContainer.innerText = "";
 
-  const showAllBtn = document.getElementById('showAllBtn');
-  if(phones.length > 10){
-    showAllBtn.classList.remove('hidden');
+  const showAllBtn = document.getElementById("showAllBtn");
+  if (phones.length > 10) {
+    showAllBtn.classList.remove("hidden");
+  } else {
+    showAllBtn.classList.add("hidden");
   }
-  else{
-    showAllBtn.classList.add('hidden');
-  }
-  
+
   phones = phones.slice(0, 9);
 
   phones.forEach((phone) => {
@@ -31,14 +30,16 @@ const displayPhone = (phones) => {
        <h2 class="card-title">${phone.phone_name}</h2>
        <p>If a dog chews shoes whose shoes does he choose?</p>
         <div class="card-actions">
-          <button class="btn btn-primary">Show Details</button>
+          <button class="btn bg-[#0D6EFD] text-white">Show Details</button>
         </div>
      </div>`;
     cardContainer.appendChild(div);
   });
+  loadSpinner(false);
 };
 
 const searchHandler = () => {
+  loadSpinner(true);
   const searchPhoneField = document.getElementById("searchPhoneField");
   const searchText = searchPhoneField.value;
 
@@ -46,4 +47,14 @@ const searchHandler = () => {
   searchPhoneField.value = "";
 };
 
-loadPhone();
+const loadSpinner = (isLoading) => {
+  const loadingSpinner = document.getElementById("loadingSpinner");
+  if(isLoading){
+    loadingSpinner.classList.remove("hidden");
+  }
+  else{
+    loadingSpinner.classList.add("hidden");
+  }
+};
+
+// loadPhone();
