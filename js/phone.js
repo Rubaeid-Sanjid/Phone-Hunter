@@ -9,6 +9,17 @@ const loadPhone = async (searchText) => {
 const displayPhone = (phones) => {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerText = '';
+
+  const showAllBtn = document.getElementById('showAllBtn');
+  if(phones.length > 10){
+    showAllBtn.classList.remove('hidden');
+  }
+  else{
+    showAllBtn.classList.add('hidden');
+  }
+  
+  phones = phones.slice(0, 9);
+
   phones.forEach((phone) => {
     const div = document.createElement("div");
     div.classList = "card bg-base-100 shadow-xl";
