@@ -30,7 +30,7 @@ const displayPhone = (phones, isShowAll) => {
     </figure>
      <div class="card-body items-center text-center">
        <h2 class="card-title">${phone.phone_name}</h2>
-       <p>If a dog chews shoes whose shoes does he choose?</p>
+       <p>Grab your desired phone and get ready to experience the ultimate in communication.</p>
         <div class="card-actions">
           <button onclick="showPhoneDetailsHandler('${phone.slug}')" class="btn bg-[#0D6EFD] text-white">Show Details</button>
         </div>
